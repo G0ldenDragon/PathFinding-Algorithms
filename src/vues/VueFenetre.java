@@ -31,8 +31,8 @@ public class VueFenetre extends JFrame {
         this.setLayout(new BorderLayout());
 
 //        vueAffichage = new VueAffichage(this);
-        vueGrille = new VueGrille(this, labyrinthe);
-        vueBoutons = new VueBoutons(this);
+        vueGrille = new VueGrille(labyrinthe);
+        vueBoutons = new VueBoutons(labyrinthe);
         
 //        this.add(vueAffichage, BorderLayout.SOUTH);
         this.add(vueGrille, BorderLayout.CENTER);

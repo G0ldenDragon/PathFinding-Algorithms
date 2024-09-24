@@ -10,22 +10,34 @@ import java.util.Observable;
 
 public class VueGrille extends JPanel implements Observer {
 
-    public VueGrille(VueFenetre vueFenetre, Labyrinthe labyrinthe) {
+    private JButton[][] buttons;
+    
+    public VueGrille(Labyrinthe labyrinthe) {
         this.setLayout(new GridLayout(labyrinthe.getLargeur(), labyrinthe.getHauteur()));
         
+        // Initialisation du tableau de Boutons
+        this.buttons = new JButton[labyrinthe.getLargeur()][labyrinthe.getHauteur()];
+
         // Initialisation du tableau de Case et création des boutons
-        for (int i = 0; i < labyrinthe.getLargeur(); i++) {
-            for (int j = 0; j < labyrinthe.getHauteur(); j++) {
+        for (int x = 0; x < labyrinthe.getLargeur(); x++) {
+            for (int y = 0; y < labyrinthe.getHauteur(); y++) {
                 
                 // Créer un bouton pour chaque case
-                JButton button = new JButton("(" + i + "," + j + ")");
+                JButton button = new JButton("(" + x + "," + y + ")");
                 button.setBackground(Color.WHITE);
                 button.setOpaque(true);
                 button.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-                button.addActionListener(new EcouteurGrille(labyrinthe));
+                button.addActionListener(new EcouteurGrille(labyrinthe, x, y, this));
+                
+                buttons[x][y] = button;
                 this.add(button);
             }
         }
+    }
+    
+    public void setButtonBackGroundColor (int x, int y, Color color)
+    {
+        buttons[x][y].setBackground(color);
     }
 
     @Override

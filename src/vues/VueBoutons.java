@@ -12,7 +12,7 @@ import java.util.Observable;
 
 public class VueBoutons extends JPanel implements Observer {
 
-    public VueBoutons(VueFenetre vueFenetre) 
+    public VueBoutons(Labyrinthe labyrinthe) 
     {
         // Boutons pour définir les types de cellules
         this.setLayout(new FlowLayout());
@@ -27,7 +27,7 @@ public class VueBoutons extends JPanel implements Observer {
         murBouton.setForeground(Color.WHITE);
         murBouton.setOpaque(true);
         murBouton.setBorderPainted(false);
-        murBouton.addActionListener(new EcouteurMur(vueFenetre.getLabyrinthe()));
+        murBouton.addActionListener(new EcouteurMur(labyrinthe));
         this.add(murBouton);
 
         // Bouton Départ pour placer le Départ
@@ -35,7 +35,7 @@ public class VueBoutons extends JPanel implements Observer {
         departBouton.setBackground(Color.GREEN);
         departBouton.setOpaque(true);
         departBouton.setBorderPainted(false);
-        departBouton.addActionListener(new EcouteurDepart(vueFenetre.getLabyrinthe()));
+        departBouton.addActionListener(new EcouteurDepart(labyrinthe));
         this.add(departBouton);
 
         // Bouton Départ pour placer le Départ
@@ -43,7 +43,7 @@ public class VueBoutons extends JPanel implements Observer {
         arriveeBouton.setBackground(Color.RED);
         arriveeBouton.setOpaque(true);
         arriveeBouton.setBorderPainted(false);
-        arriveeBouton.addActionListener(new EcouteurArrivee(vueFenetre.getLabyrinthe()));
+        arriveeBouton.addActionListener(new EcouteurArrivee(labyrinthe));
         this.add(arriveeBouton);
 
         // Bouton Vide pour placer des cases Vide
@@ -51,17 +51,17 @@ public class VueBoutons extends JPanel implements Observer {
         videBouton.setBackground(Color.WHITE);
         videBouton.setOpaque(true);
         videBouton.setBorderPainted(false);
-        videBouton.addActionListener(new EcouteurVide(vueFenetre.getLabyrinthe()));
+        videBouton.addActionListener(new EcouteurVide(labyrinthe));
         this.add(videBouton);
 
         // Crée un menu déroulant des différents algos
         JComboBox<Algo> menuDeroulant = new JComboBox<>(Algo.values());
-        menuDeroulant.addActionListener(new EcouteurAlgo(menuDeroulant, vueFenetre.getLabyrinthe()));
+        menuDeroulant.addActionListener(new EcouteurAlgo(menuDeroulant, labyrinthe));
         this.add(menuDeroulant);
 
         // Bouton "Démarrer"
         JButton boutonLancerAlgo = new JButton("Démarrer");
-        boutonLancerAlgo.addActionListener(new EcouteurDemarrer(vueFenetre.getLabyrinthe()));
+        boutonLancerAlgo.addActionListener(new EcouteurDemarrer(labyrinthe));
         this.add(boutonLancerAlgo);
     }
 

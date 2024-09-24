@@ -2,6 +2,8 @@ package src.cassetete;
 
 import src.cassetete.jeux.StatutBouton;
 
+import java.util.Objects;
+
 public class Case 
 {
     private int x, y;
@@ -37,7 +39,16 @@ public class Case
     }
 
     @Override
-    public String toString() {
-        return "Case{" + "x=" + x + ", y=" + y + ", statut=" + statut + '}';
+    public String toString() 
+    {
+        return x + "-" + y + "_" + statut.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Case aCase = (Case) o;
+        return x == aCase.x && y == aCase.y;
     }
 }

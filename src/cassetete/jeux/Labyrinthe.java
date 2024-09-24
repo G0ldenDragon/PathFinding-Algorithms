@@ -1,13 +1,17 @@
 package src.cassetete.jeux;
 import src.cassetete.Case;
 
+import java.util.Arrays;
 import java.util.Observable;
 
 public class Labyrinthe extends Observable 
 {
-    private Case[][] grille;
     private int largeur;
     private int hauteur;
+    private Case[][] grille;
+    private StatutBouton statutMode = StatutBouton.VIDE;
+    private Case depart = null;
+    private Case arrivee = null;
 
     public Labyrinthe(int largeur, int hauteur) 
     {
@@ -32,16 +36,94 @@ public class Labyrinthe extends Observable
         return hauteur;
     }
 
+    public Case getCase(int x, int y) 
+    {
+        return grille[x][y];
+    }
+    
     public Case[][] getGrille()
     {
         return grille;
     }
 
+    public StatutBouton getStatutMode() 
+    {
+        return statutMode;
+    }
+
+    public Case getDepart() {
+        return depart;
+    }
+
+    public Case getArrivee() {
+        return arrivee;
+    }
+
     // Setters
-    public void setCase(int x, int y, StatutBouton statut) 
+    public void setCase(int x, int y) 
+    {
+        grille[x][y].setStatut(statutMode);
+        setChanged();
+        notifyObservers();
+    }
+
+    public void setCase(int x, int y, StatutBouton statut)
     {
         grille[x][y].setStatut(statut);
         setChanged();
         notifyObservers();
+    }
+    
+    public void setStatutMode (StatutBouton statut)
+    {
+        this.statutMode = statut;
+    }
+
+    public void setDepart(Case depart) 
+    {
+        this.depart = depart;
+    }
+    
+    public void setArrivee(Case arrivee) 
+    {
+        this.arrivee = arrivee;
+    }
+
+    @Override
+    public String toString() 
+    {
+        String grilleToString = "Case Départ : ";
+        try 
+        {
+            grilleToString += depart.toString();
+        } 
+        catch (Exception e) 
+        {
+            grilleToString += "NULL";
+        }
+
+        grilleToString += "\n" +
+                "Case Arrivée : ";
+        
+        try
+        {
+            grilleToString += arrivee.toString();
+        }
+        catch (Exception e)
+        {
+            grilleToString += "NULL";
+        }
+
+        grilleToString += "\n";
+        
+        for (int x = 0; x < largeur; x++)
+        {
+            for (int y = 0; y < hauteur; y++)
+            {
+                grilleToString += (grille[x][y].toString() + "     ");
+            }
+            grilleToString += "\n";
+        }
+        return grilleToString;
     }
 }
