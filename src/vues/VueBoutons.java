@@ -15,7 +15,8 @@ public class VueBoutons extends JPanel implements Observer {
     public VueBoutons(VueFenetre vueFenetre) 
     {
         // Boutons pour définir les types de cellules
-
+        this.setLayout(new FlowLayout());
+        
         // Texte non cliquable
         JLabel label = new JLabel("Composez votre labyrinthe");
         this.add(label);

@@ -2,10 +2,11 @@ package src.controleurs.grille;
 
 import src.cassetete.jeux.Labyrinthe;
 
-import java.awt.event.MouseAdapter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
-public class EcouteurGrille extends MouseAdapter {
+public class EcouteurGrille implements ActionListener {
     private Labyrinthe labyrinthe;
 
     public EcouteurGrille(Labyrinthe labyrinthe) {
@@ -13,7 +14,7 @@ public class EcouteurGrille extends MouseAdapter {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        // Code pour gérer les clics sur la grille
+    public void actionPerformed(ActionEvent e) {
+        
     }
 }

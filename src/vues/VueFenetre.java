@@ -15,15 +15,23 @@ public class VueFenetre extends JFrame {
         return labyrinthe;
     }
     
-    public VueFenetre(String name, int widthSize, int heightSize)
+    public VueFenetre(
+            String name, 
+            int widthSize, 
+            int heightSize,
+            int widthGridSize,
+            int heightGridSize
+    )
     {
+        this.labyrinthe = new Labyrinthe(widthGridSize, heightGridSize);
+        
         this.setTitle(name);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(widthSize, heightSize);
         this.setLayout(new BorderLayout());
 
 //        vueAffichage = new VueAffichage(this);
-        vueGrille = new VueGrille(this, 10, 10);
+        vueGrille = new VueGrille(this, labyrinthe);
         vueBoutons = new VueBoutons(this);
         
 //        this.add(vueAffichage, BorderLayout.SOUTH);
@@ -31,7 +39,6 @@ public class VueFenetre extends JFrame {
         this.add(vueBoutons, BorderLayout.NORTH);
 
 //        Affichage de la fenetre
-        this.pack();
         this.setVisible(true);
         
     }

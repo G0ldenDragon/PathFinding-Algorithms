@@ -14,6 +14,7 @@ public class Case
         this.statut = statut;
     }
 
+//    Getters
     public int getX() 
     { 
         return x; 
@@ -23,13 +24,20 @@ public class Case
     { 
         return y; 
     }
+    
     public StatutBouton getStatut() 
     { 
         return statut; 
     }
 
+//    Setters
     public void setStatut(StatutBouton statut) 
     {
         this.statut = statut;
+    }
+
+    @Override
+    public String toString() {
+        return "Case{" + "x=" + x + ", y=" + y + ", statut=" + statut + '}';
     }
 }
