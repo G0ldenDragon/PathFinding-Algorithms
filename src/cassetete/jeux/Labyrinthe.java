@@ -10,6 +10,7 @@ public class Labyrinthe extends Observable
     private int hauteur;
     private Case[][] grille;
     private StatutBouton statutMode = StatutBouton.VIDE;
+    private Algo algorithmMode = Algo.Algo1;
     private Case depart = null;
     private Case arrivee = null;
 
@@ -51,6 +52,10 @@ public class Labyrinthe extends Observable
         return statutMode;
     }
 
+    public Algo getAlgorithmMode() {
+        return algorithmMode;
+    }
+
     public Case getDepart() {
         return depart;
     }
@@ -79,6 +84,11 @@ public class Labyrinthe extends Observable
         this.statutMode = statut;
     }
 
+    public void setAlgorithmMode(Algo algorithmMode) 
+    {
+        this.algorithmMode = algorithmMode;
+    }
+
     public void setDepart(Case depart) 
     {
         this.depart = depart;
@@ -92,7 +102,9 @@ public class Labyrinthe extends Observable
     @Override
     public String toString() 
     {
-        String grilleToString = "Case Départ : ";
+        String grilleToString = "Algorithme choisi : " + this.algorithmMode + "\n" +
+                "Case Mode : " + this.statutMode + "\n" +
+                "Case Départ : ";
         try 
         {
             grilleToString += depart.toString();

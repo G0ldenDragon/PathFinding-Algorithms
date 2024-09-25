@@ -6,10 +6,8 @@ import src.cassetete.jeux.StatutBouton;
 import src.vues.VueGrille;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Field;
 
 public class EcouteurGrille implements ActionListener 
 {
@@ -47,8 +45,8 @@ public class EcouteurGrille implements ActionListener
                 
                 vueGrille.setButtonBackGroundColor(
                         labyrinthe.getDepart().getX(), 
-                        labyrinthe.getDepart().getY(), 
-                        setBackgroundColor(
+                        labyrinthe.getDepart().getY(),
+                        StatutBouton.setBackgroundColor(
                                 StatutBouton.VIDE.toString()
                         )
                 );
@@ -72,8 +70,8 @@ public class EcouteurGrille implements ActionListener
                 
                 vueGrille.setButtonBackGroundColor(
                         labyrinthe.getArrivee().getX(), 
-                        labyrinthe.getArrivee().getY(), 
-                        setBackgroundColor(
+                        labyrinthe.getArrivee().getY(),
+                        StatutBouton.setBackgroundColor(
                                 StatutBouton.VIDE.toString()
                         )
                 );
@@ -99,23 +97,9 @@ public class EcouteurGrille implements ActionListener
 //        Modification du tableau back-end
         labyrinthe.setCase(positionX, positionY);
 //        Modification de la couleur front-end
-        sourceButton.setBackground(setBackgroundColor(labyrinthe.getStatutMode().toString()));
+        sourceButton.setBackground(StatutBouton.setBackgroundColor(labyrinthe.getStatutMode().toString()));
         
-//        Affichage du tableau du labyrinthe
-        System.out.println(labyrinthe.toString());
-    }
-    
-    private Color setBackgroundColor(String color)
-    {
-        try {
-            Field field = Color.class.getField(color);
-            Color backgroundColor = (Color) field.get(null);
-            return backgroundColor;
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex.getMessage());
-        }
-        return null;
+//        Affichage du tableau du labyrinthe pour debugger
+//        System.out.println(labyrinthe.toString());
     }
 }
