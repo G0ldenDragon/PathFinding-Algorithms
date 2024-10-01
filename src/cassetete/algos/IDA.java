@@ -1,5 +1,6 @@
 package src.cassetete.algos;
 
-public class IDA {
+public class IDA implements IRecherche
+{
     
 }

@@ -1,5 +1,6 @@
 package src.cassetete.algos;
 
-public class IDAStar {
+public class IDAStar implements IRecherche
+{
     
 }

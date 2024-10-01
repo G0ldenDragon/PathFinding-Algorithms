@@ -1,5 +1,6 @@
 package src.cassetete.algos;
 
-public class LargeurDAbord {
+public class LargeurDAbord implements IRecherche
+{
     
 }

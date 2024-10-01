@@ -12,7 +12,7 @@ import java.util.Observable;
 
 public class VueBoutons extends JPanel implements Observer {
 
-    public VueBoutons(Labyrinthe labyrinthe) 
+    public VueBoutons(Labyrinthe labyrinthe, VueGrille vueGrille)
     {
         // Boutons pour définir les types de cellules
         this.setLayout(new FlowLayout());
@@ -61,7 +61,7 @@ public class VueBoutons extends JPanel implements Observer {
 
         // Bouton "Démarrer"
         JButton boutonLancerAlgo = new JButton("Démarrer");
-        boutonLancerAlgo.addActionListener(new EcouteurDemarrer(labyrinthe));
+        boutonLancerAlgo.addActionListener(new EcouteurDemarrer(labyrinthe, vueGrille));
         this.add(boutonLancerAlgo);
     }
 

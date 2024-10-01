@@ -1,6 +1,8 @@
 package src.cassetete.algos;
 
-public interface IRecherche 
+import java.util.List;
+
+public interface IRecherche
 {
-    
+
 }

@@ -1,5 +1,6 @@
 package src.cassetete.algos;
 
-public class ADeux {
+public class ADeux implements IRecherche
+{
     
 }

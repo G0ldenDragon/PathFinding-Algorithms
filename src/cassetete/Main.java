@@ -8,7 +8,7 @@ public class Main
     {
         VueFenetre vueFenetre = new VueFenetre(
                 "Labyrinthe",
-                800, 
+                800,
                 700,
                 10,
                 10

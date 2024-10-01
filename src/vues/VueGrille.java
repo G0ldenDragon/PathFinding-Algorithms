@@ -40,6 +40,10 @@ public class VueGrille extends JPanel implements Observer {
         buttons[x][y].setBackground(color);
     }
 
+    public JButton[][] getButtons() {
+        return buttons;
+    }
+
     @Override
     public void update(Observable o, Object arg) {
         if (o instanceof Labyrinthe) {

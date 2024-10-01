@@ -32,7 +32,7 @@ public class VueFenetre extends JFrame {
 
 //        vueAffichage = new VueAffichage(this);
         vueGrille = new VueGrille(labyrinthe);
-        vueBoutons = new VueBoutons(labyrinthe);
+        vueBoutons = new VueBoutons(labyrinthe, vueGrille);
         
 //        this.add(vueAffichage, BorderLayout.SOUTH);
         this.add(vueGrille, BorderLayout.CENTER);

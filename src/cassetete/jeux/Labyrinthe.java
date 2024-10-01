@@ -1,10 +1,9 @@
 package src.cassetete.jeux;
 import src.cassetete.Case;
 
-import java.util.Arrays;
 import java.util.Observable;
 
-public class Labyrinthe extends Observable 
+public class Labyrinthe extends Observable
 {
     private int largeur;
     private int hauteur;
@@ -14,7 +13,7 @@ public class Labyrinthe extends Observable
     private Case depart = null;
     private Case arrivee = null;
 
-    public Labyrinthe(int largeur, int hauteur) 
+    public Labyrinthe(int largeur, int hauteur)
     {
         this.largeur = largeur;
         this.hauteur = hauteur;
@@ -37,17 +36,17 @@ public class Labyrinthe extends Observable
         return hauteur;
     }
 
-    public Case getCase(int x, int y) 
+    public Case getCase(int x, int y)
     {
         return grille[x][y];
     }
-    
+
     public Case[][] getGrille()
     {
         return grille;
     }
 
-    public StatutBouton getStatutMode() 
+    public StatutBouton getStatutMode()
     {
         return statutMode;
     }
@@ -65,7 +64,7 @@ public class Labyrinthe extends Observable
     }
 
     // Setters
-    public void setCase(int x, int y) 
+    public void setCase(int x, int y)
     {
         grille[x][y].setStatut(statutMode);
         setChanged();
@@ -78,45 +77,45 @@ public class Labyrinthe extends Observable
         setChanged();
         notifyObservers();
     }
-    
+
     public void setStatutMode (StatutBouton statut)
     {
         this.statutMode = statut;
     }
 
-    public void setAlgorithmMode(Algo algorithmMode) 
+    public void setAlgorithmMode(Algo algorithmMode)
     {
         this.algorithmMode = algorithmMode;
     }
 
-    public void setDepart(Case depart) 
+    public void setDepart(Case depart)
     {
         this.depart = depart;
     }
-    
-    public void setArrivee(Case arrivee) 
+
+    public void setArrivee(Case arrivee)
     {
         this.arrivee = arrivee;
     }
 
     @Override
-    public String toString() 
+    public String toString()
     {
         String grilleToString = "Algorithme choisi : " + this.algorithmMode + "\n" +
                 "Case Mode : " + this.statutMode + "\n" +
                 "Case Départ : ";
-        try 
+        try
         {
             grilleToString += depart.toString();
-        } 
-        catch (Exception e) 
+        }
+        catch (Exception e)
         {
             grilleToString += "NULL";
         }
 
         grilleToString += "\n" +
                 "Case Arrivée : ";
-        
+
         try
         {
             grilleToString += arrivee.toString();
@@ -127,7 +126,7 @@ public class Labyrinthe extends Observable
         }
 
         grilleToString += "\n";
-        
+
         for (int x = 0; x < largeur; x++)
         {
             for (int y = 0; y < hauteur; y++)

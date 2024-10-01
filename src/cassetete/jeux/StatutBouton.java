@@ -1,5 +1,7 @@
 package src.cassetete.jeux;
 
+import src.cassetete.Case;
+
 import java.awt.*;
 import java.lang.reflect.Field;
 
